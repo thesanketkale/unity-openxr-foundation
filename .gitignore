@@ -8,6 +8,8 @@
 /Logs/
 /MemoryCaptures/
 /Recordings/
+**/[Bb]in/
+**/[Oo]bj/
 
 # User Settings & Caches
 /UserSettings/
