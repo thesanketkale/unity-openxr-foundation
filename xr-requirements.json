@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OpenXR Project Validation Requirements",
+  "description": "Compliance thresholds and validation constraints for Android OpenXR standalone builds (Meta Quest family and compatible HMDs).",
+  "metadata": {
+    "sourceUrl": "https://developers.meta.com/horizon/documentation/unity/unity-req/",
+    "secondarySourceUrl": "https://docs.unity3d.com/Packages/com.unity.xr.openxr@1.13/manual/index.html",
+    "retrievedDate": "2026-10-24",
+    "targetPlatform": "Android Standalone OpenXR"
+  },
+  "requirements": {
+    "targetBuildTarget": "Android",
+    "requiredScriptingBackend": "IL2CPP",
+    "requiredArchitectures": [
+      "ARM64"
+    ],
+    "disallowedArchitectures": [
+      "ARMv7",
+      "x86"
+    ],
+    "requiredColorSpace": "Linear",
+    "allowedGraphicsApis": [
+      "Vulkan",
+      "OpenGLES3"
+    ],
+    "minimumAndroidApiLevel": 32,
+    "targetAndroidApiLevel": 34,
+    "requiredOpenXrFeatureGroups": [
+      "com.unity.openxr.feature.input.handtracking",
+      "com.unity.openxr.feature.meta"
+    ],
+    "requiredInteractionProfiles": [
+      "/interaction_profiles/oculus/touch_controller",
+      "/interaction_profiles/ext/hand_interaction_ext"
+    ],
+    "manifestRules": {
+      "installLocation": "auto",
+      "requestLegacyExternalStorage": false
+    }
+  }
+}
