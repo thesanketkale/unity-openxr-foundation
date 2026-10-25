@@ -1,0 +1,92 @@
+name: CI
+
+'on':
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  lint-and-validate:
+    name: Meta & Repository Verification
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Run fast repository verification
+        shell: bash
+        run: |
+          bash scripts/verify.sh fast
+
+  tests-and-quality:
+    name: Standalone Tests & Math Suite
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@3951f33f4cd4f39d416bd7506c3be47568553763 # v4.3.0
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Run Standalone Test Suite
+        shell: bash
+        run: |
+          dotnet test tests/Foundation.StandaloneTests/Foundation.StandaloneTests.csproj --configuration Release --verbosity normal
+
+  security-scan:
+    name: Security & Secret Audit
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Run Clean-Room & Credentials Guard
+        shell: bash
+        run: |
+          bash tools/guard.sh
+
+      - name: Run Gitleaks Secret Scanner
+        uses: gitleaks/gitleaks-action@f56be9d8d689620a8ffea952d7ee16d10e051c50 # v2.3.9
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
+  unity-xr-build:
+    name: Standalone Quest / Android Build
+    runs-on: ubuntu-latest
+    needs: [lint-and-validate, tests-and-quality, security-scan]
+    permissions:
+      contents: read
+    timeout-minutes: 45
+    if: vars.UNITY_CI == 'true'
+    steps:
+      - name: Notice on Unity CI Execution
+        shell: bash
+        run: |
+          echo "UNITY_CI is enabled. Executing Unity standalone build pipeline."
+          echo "Self-hosted Unity runner or GameCI credentials are required for batchmode compilation."

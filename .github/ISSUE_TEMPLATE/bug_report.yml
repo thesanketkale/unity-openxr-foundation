@@ -1,0 +1,42 @@
+name: Bug Report
+description: Create a bug report to help us improve the foundation.
+title: "bug: [Short description]"
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting an issue! Please provide as much context as possible.
+  - type: input
+    id: environment
+    attributes:
+      label: Unity & Hardware Environment
+      description: Unity version, target device (e.g. Meta Quest 3, Quest Pro, PC VR), and OS.
+      placeholder: Unity 6000.0.28f1, Meta Quest 3, Horizon OS v69
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Detailed step-by-step instructions to reproduce the behavior.
+      placeholder: |
+        1. Open scene 'InteractionPlayground'
+        2. Grab the XrLever with direct interactor
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior / Error Logs
+      description: Include relevant console errors, stack traces, or logcat snippets.
+    validations:
+      required: true
