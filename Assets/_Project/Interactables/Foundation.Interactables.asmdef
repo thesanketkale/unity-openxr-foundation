@@ -1,0 +1,19 @@
+{
+  "name": "Foundation.Interactables",
+  "rootNamespace": "Foundation.Interactables",
+  "references": [
+    "Foundation.Core",
+    "Foundation.Input",
+    "Unity.XR.Interaction.Toolkit",
+    "Unity.XR.CoreUtils"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
