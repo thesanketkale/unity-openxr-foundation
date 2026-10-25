@@ -1,7 +1,7 @@
-# unity-openxr-starter
+# unity-openxr-foundation
 
-[![CI](https://github.com/thesanketkale/unity-openxr-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/thesanketkale/unity-openxr-starter/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/v/release/thesanketkale/unity-openxr-starter)](https://github.com/thesanketkale/unity-openxr-starter/releases)
+[![CI](https://github.com/thesanketkale/unity-openxr-foundation/actions/workflows/ci.yml/badge.svg)](https://github.com/thesanketkale/unity-openxr-foundation/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/thesanketkale/unity-openxr-foundation)](https://github.com/thesanketkale/unity-openxr-foundation/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Unity 6 LTS](https://img.shields.io/badge/Unity-6000.0.28f1%20LTS-black.svg)](ProjectSettings/ProjectVersion.txt)
 
@@ -19,7 +19,7 @@ Bootstrapping a production-grade XR application in Unity often leads to repetiti
 
 ### Comparison With Alternatives
 
-| Capability | `unity-openxr-starter` | Unity XRI Starter Assets | Meta All-In-One XR SDK |
+| Capability | `unity-openxr-foundation` | Unity XRI Starter Assets | Meta All-In-One XR SDK |
 |---|---|---|---|
 | **Standards Compliance** | Pure Khronos OpenXR | Mixed OpenXR & Unity Samples | Proprietary Meta OVR Plugin |
 | **Cross-Platform Portability** | Quest, Android OpenXR, PC VR | OpenXR / PC VR | Locked to Meta Ecosystem |
