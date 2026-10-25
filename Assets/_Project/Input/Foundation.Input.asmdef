@@ -1,0 +1,21 @@
+{
+  "name": "Foundation.Input",
+  "rootNamespace": "Foundation.Input",
+  "references": [
+    "Foundation.Core",
+    "Unity.InputSystem",
+    "Unity.XR.CoreUtils",
+    "Unity.XR.Interaction.Toolkit",
+    "Unity.XR.Hands",
+    "Unity.XR.OpenXR"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
