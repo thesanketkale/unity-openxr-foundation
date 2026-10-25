@@ -1,0 +1,37 @@
+# Unity project ignore rules
+# Builds & Packages
+/[Bb]uild/
+/[Bb]uilds/
+/Library/
+/Temp/
+/Obj/
+/Logs/
+/MemoryCaptures/
+/Recordings/
+
+# User Settings & Caches
+/UserSettings/
+.vs/
+.idea/
+.vscode/
+/*.csproj
+/*.sln
+/*.suo
+/*.user
+/*.userprefs
+/*.pidb
+/*.booproj
+/*.unityproj
+
+# OS Generated
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+[Tt]humbs.db
+
+# Crash reports
+sysinfo.txt
+crashlytics-build.properties
