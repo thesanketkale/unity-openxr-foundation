@@ -53,7 +53,7 @@ namespace Foundation.StandaloneTests
             Assert.DoesNotContain("ff98106e4c7b2bc287b24eaf42907196329070c7", yaml);
         }
 
-        [Fact(Skip = "pending AC-3 (step 2)")]
+        [Fact]
         public void AC_3_LintJobGeneratesStepSummary()
         {
             string yaml = GetWorkflowContent();
@@ -69,7 +69,7 @@ namespace Foundation.StandaloneTests
             Assert.Contains("Verification Summary", lintSection);
         }
 
-        [Fact(Skip = "pending AC-4 (step 2)")]
+        [Fact]
         public void AC_4_TestsJobGeneratesStepSummary()
         {
             string yaml = GetWorkflowContent();
@@ -84,7 +84,7 @@ namespace Foundation.StandaloneTests
             Assert.Contains("Test Suite Summary", testSection);
         }
 
-        [Fact(Skip = "pending AC-5 (step 2)")]
+        [Fact]
         public void AC_5_SecurityJobGeneratesStepSummary()
         {
             string yaml = GetWorkflowContent();
@@ -99,7 +99,7 @@ namespace Foundation.StandaloneTests
             Assert.Contains("Security Audit Summary", secSection);
         }
 
-        [Fact(Skip = "pending AC-6 (step 2)")]
+        [Fact]
         public void AC_6_BuildJobGeneratesStepSummary()
         {
             string yaml = GetWorkflowContent();
