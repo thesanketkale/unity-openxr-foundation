@@ -113,7 +113,7 @@ namespace Foundation.StandaloneTests
             Assert.Contains("Unity Standalone Build", buildSection);
         }
 
-        [Fact(Skip = "pending AC-7 (step 3)")]
+        [Fact]
         public void AC_7_WorkflowAdheresToYamlConventions()
         {
             string root = Directory.GetCurrentDirectory();
@@ -149,6 +149,19 @@ namespace Foundation.StandaloneTests
                 int minutes = int.Parse(match.Groups[1].Value);
                 Assert.True(minutes <= 45, $"Job timeout exceeds maximum allowable limit (found {minutes})");
             }
+        }
+
+        [Fact]
+        public void AC_9_VerifyScriptExistsAndFastConfigured()
+        {
+            string root = Directory.GetCurrentDirectory();
+            while (!File.Exists(Path.Combine(root, ".github", "workflows", "ci.yml")) && Directory.GetParent(root) != null)
+            {
+                root = Directory.GetParent(root)!.FullName;
+            }
+
+            Assert.True(File.Exists(Path.Combine(root, "scripts", "verify.ps1")), "scripts/verify.ps1 must exist");
+            Assert.True(File.Exists(Path.Combine(root, "scripts", "verify.sh")), "scripts/verify.sh must exist");
         }
     }
 }
