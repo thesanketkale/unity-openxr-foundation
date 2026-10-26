@@ -20,7 +20,7 @@ namespace Foundation.StandaloneTests
             return File.ReadAllText(workflowPath);
         }
 
-        [Fact(Skip = "pending AC-1 (step 1)")]
+        [Fact]
         public void AC_1_AllJobsUseUbuntu2404()
         {
             string yaml = GetWorkflowContent();
@@ -32,7 +32,7 @@ namespace Foundation.StandaloneTests
             Assert.True(matches.Count >= 4, $"Expected at least 4 jobs pinned to ubuntu-24.04, found {matches.Count}");
         }
 
-        [Fact(Skip = "pending AC-2 (step 1)")]
+        [Fact]
         public void AC_2_ActionsPinnedToNode24Shas()
         {
             string yaml = GetWorkflowContent();
@@ -129,7 +129,7 @@ namespace Foundation.StandaloneTests
             Assert.True(yaml.Length > 0);
         }
 
-        [Fact(Skip = "pending AC-8 (step 1)")]
+        [Fact]
         public void AC_8_WorkflowGuardrailsAndPermissions()
         {
             string yaml = GetWorkflowContent();
