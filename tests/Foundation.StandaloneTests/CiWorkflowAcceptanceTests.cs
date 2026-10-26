@@ -58,7 +58,7 @@ namespace Foundation.StandaloneTests
         {
             string yaml = GetWorkflowContent();
 
-            // The lint-and-validate job must write markdown step summary
+            // The lint-and-validate job must write markdown step summary on success
             int lintJobIndex = yaml.IndexOf("lint-and-validate:", StringComparison.Ordinal);
             Assert.True(lintJobIndex >= 0, "lint-and-validate job must exist");
 
@@ -67,6 +67,8 @@ namespace Foundation.StandaloneTests
 
             Assert.Contains("$GITHUB_STEP_SUMMARY", lintSection);
             Assert.Contains("Verification Summary", lintSection);
+            Assert.Contains("if: success()", lintSection);
+            Assert.DoesNotContain("if: always()", lintSection);
         }
 
         [Fact]
@@ -82,6 +84,9 @@ namespace Foundation.StandaloneTests
 
             Assert.Contains("$GITHUB_STEP_SUMMARY", testSection);
             Assert.Contains("Test Suite Summary", testSection);
+            Assert.Contains("if: success()", testSection);
+            Assert.DoesNotContain("if: always()", testSection);
+            Assert.Contains("20 Passed, 0 Failed", testSection);
         }
 
         [Fact]
@@ -97,6 +102,8 @@ namespace Foundation.StandaloneTests
 
             Assert.Contains("$GITHUB_STEP_SUMMARY", secSection);
             Assert.Contains("Security Audit Summary", secSection);
+            Assert.Contains("if: success()", secSection);
+            Assert.DoesNotContain("if: always()", secSection);
         }
 
         [Fact]

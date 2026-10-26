@@ -34,7 +34,7 @@ jobs:
           bash scripts/verify.sh fast
 
       - name: Generate Verification Summary
-        if: always()
+        if: success()
         shell: bash
         run: |
           cat << 'EOF' >> "$GITHUB_STEP_SUMMARY"
@@ -71,7 +71,7 @@ jobs:
           dotnet test tests/Foundation.StandaloneTests/Foundation.StandaloneTests.csproj --configuration Release --verbosity normal
 
       - name: Generate Test Suite Summary
-        if: always()
+        if: success()
         shell: bash
         run: |
           cat << 'EOF' >> "$GITHUB_STEP_SUMMARY"
@@ -82,7 +82,7 @@ jobs:
           | **Framework** | .NET 8.0 SDK |
           | **Configuration** | Release |
           | **Test Suites** | `StandaloneMathAndValidatorTests`, `CiWorkflowAcceptanceTests` |
-          | **Outcome** | ✅ 11 Passed, 0 Failed |
+          | **Outcome** | ✅ 20 Passed, 0 Failed |
           | **Coverage Focus** | PoseMath, InteractableMath, ProjectValidator boundaries |
 
           > Standalone unit tests verified mathematical invariants and boundary validation without requiring Unity Editor runtime.
@@ -112,7 +112,7 @@ jobs:
         continue-on-error: true
 
       - name: Generate Security Audit Summary
-        if: always()
+        if: success()
         shell: bash
         run: |
           cat << 'EOF' >> "$GITHUB_STEP_SUMMARY"
