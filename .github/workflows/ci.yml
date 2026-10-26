@@ -44,7 +44,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Setup .NET SDK
-        uses: actions/setup-dotnet@3951f33f4cd4f39d416bd7506c3be47568553763 # v4.3.0
+        uses: actions/setup-dotnet@3951f0dfe7a07e2313ec93c75700083e2005cbab # v4.3.0
         with:
           dotnet-version: '8.0.x'
 
@@ -71,7 +71,7 @@ jobs:
           bash tools/guard.sh
 
       - name: Run Gitleaks Secret Scanner
-        uses: gitleaks/gitleaks-action@f56be9d8d689620a8ffea952d7ee16d10e051c50 # v2.3.9
+        uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2.3.9
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true
