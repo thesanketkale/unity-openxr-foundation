@@ -37,3 +37,6 @@ ehthumbs.db
 # Crash reports
 sysinfo.txt
 crashlytics-build.properties
+
+# Agent team local settings
+.claude/settings.local.json

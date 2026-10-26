@@ -18,6 +18,8 @@
 *.yaml text eol=lf
 *.sh text eol=lf
 *.ps1 text eol=crlf
+scripts/verify.sh text eol=lf
+.githooks/* text eol=lf
 
 # Git LFS for binary formats
 *.png filter=lfs diff=lfs merge=lfs -text
